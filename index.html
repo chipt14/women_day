@@ -408,6 +408,26 @@
         }
     </style>
 </head>
+
+<button id="musicToggle" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #d946a6, #8b5cf6);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 9999;
+">
+    🎵 Bật nhạc
+</button>
+
+<audio id="backgroundMusic" loop>
+    <source src="https://chipt14.github.io/women_day/nhac-chuong-nhat-ki-cua-me-hien-thuc.mp3" type="audio/mpeg">
+</audio>
+
 <body>
     <div class="background-overlay"></div>
     <div class="hearts-container" id="heartsContainer"></div>
@@ -609,5 +629,22 @@
             });
         });
     </script>
+
+    <script>
+const music = document.getElementById('backgroundMusic');
+const toggle = document.getElementById('musicToggle');
+let isPlaying = false;
+
+toggle.addEventListener('click', () => {
+    if (isPlaying) {
+        music.pause();
+        toggle.textContent = '🎵 Bật nhạc';
+    } else {
+        music.play();
+        toggle.textContent = '🔇 Tắt nhạc';
+    }
+    isPlaying = !isPlaying;
+});
+</script>
 </body>
 </html>
